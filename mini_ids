@@ -1,0 +1,17 @@
+# Simple IDS pattern detector
+
+malicious_patterns = [
+    "SELECT * FROM",
+    "<script>",
+    "DROP TABLE",
+    "' OR '1'='1"
+]
+
+user_input = input("Enter request: ")
+
+for pattern in malicious_patterns:
+    if pattern.lower() in user_input.lower():
+        print("🚨 ALERT: Possible attack detected!")
+        break
+else:
+    print("Request looks safe.")

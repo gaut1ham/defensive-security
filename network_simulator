@@ -1,0 +1,18 @@
+import random
+
+protocols = ["TCP", "UDP", "ICMP"]
+
+packet = {
+    "src_ip": f"192.168.1.{random.randint(1,254)}",
+    "dst_ip": f"10.0.0.{random.randint(1,254)}",
+    "port": random.choice([22, 80, 443]),
+    "protocol": random.choice(protocols)
+}
+
+print("📦 Packet Generated")
+for k, v in packet.items():
+    print(f"{k}: {v}")
+
+if packet["port"] == 22:
+    print("⚠️ SSH traffic detected")
+
